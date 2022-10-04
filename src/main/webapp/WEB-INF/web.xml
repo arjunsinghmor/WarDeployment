@@ -7,7 +7,7 @@
         <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
         <init-param>
             <param-name>debug</param-name>
-            <param-value>koddas.web.war</param-value> <!-- Set this value to whatever you name your own root package to -->
+            <param-value>0</param-value> <!-- Set this value to whatever you name your own root package to -->
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>

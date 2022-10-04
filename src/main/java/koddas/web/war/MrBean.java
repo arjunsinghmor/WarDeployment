@@ -1,4 +1,4 @@
-package koddas.web.war;
+package vitraya.web.war;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package koddas.web.war;
+package vitraya.web.war;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
