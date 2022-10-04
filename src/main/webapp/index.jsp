@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>WAR Web Service</title>
+	<title>WAR Service Deployed</title>
 	<link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
 	<link href="static/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<h1>WAR Web Service</h1>
+	<h1>WAR Service Vitraya Tech</h1>
 	<ul>
 		<li><a href="http://35.86.105.147:8090/wwp-1.0.0/webapi/service">http://35.86.105.147:8090/wwp-1.0.0/webapi/service</a></li>
 		<li><a href="http://35.86.105.147:8090/wwp-1.0.0/webapi/service/hello">http://35.86.105.147:8090/wwp-1.0.0/webapi/service/hello</a></li>
