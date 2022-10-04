@@ -40,11 +40,11 @@ command from the command line:
 
     glassfish4/bin/asadmin start-domain
 
-Open a new browser window/tab and type in *localhost:4848*. Find the
+Open a new browser window/tab and type in *35.86.105.147:4848*. Find the
 *Applications* link in the menu and click it. Next, click the *Deploy* button
 and select *./target/wwp-1.0.0.war*. Once done, click the *Launch*
 link and you're all set to try your new application. It will be made available
-at *http://localhost:8090/wwp-1.0.0*.
+at *http://35.86.105.147:8090/wwp-1.0.0*.
 
 # How do I configure my application?
 
