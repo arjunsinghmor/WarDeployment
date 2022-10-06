@@ -10,6 +10,7 @@
 	<h2>Checking auto trigger on commit</h2>
 	<h3>Testing hello</h3>
 	<h2>Vitraya Tech</h2>
+	<h2>Hello Vitraya</h2>
 	<ul>
 		<li><a href="http://35.86.105.147:8090/wwp-1.0.0/webapi/service">http://35.86.105.147:8090/wwp-1.0.0/webapi/service</a></li>
 		<li><a href="http://35.86.105.147:8090/wwp-1.0.0/webapi/service/hello">http://35.86.105.147:8090/wwp-1.0.0/webapi/service/hello</a></li>
