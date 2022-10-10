@@ -77,4 +77,4 @@ Please note that the links displayed on the web page will not change
 accordingly, as they are set manually.
     
     Testing bucket functionality
-    Checking bucket push and deploy script 
+    Checking bucket push and deploy script working
