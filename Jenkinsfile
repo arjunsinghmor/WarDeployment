@@ -17,7 +17,6 @@ pipeline {
 	stage('Deploy') {
             steps {
 		 sh '''#!/bin/bash
-		 echo "jenkins ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 		 cd /opt/scripts/
 		 ./deploy.sh
                  '''
