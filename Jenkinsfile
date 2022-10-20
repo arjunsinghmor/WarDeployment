@@ -17,7 +17,7 @@ pipeline {
 	stage('Deploy') {
             steps {
 		 sh '''#!/bin/bash
-		 chmod +x -R ${env.WORKSPACE}
+		 sudo su -
 		 cd /opt/scripts/
 		 ./deploy.sh
                  '''
