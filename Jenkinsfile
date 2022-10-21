@@ -16,16 +16,15 @@ pipeline {
         }
 	stage('Deploy') {
             steps {
-		 sh '''#!/bin/bash
-		 read -p "Enter Build Number:" Build
+		 sh '''sudo su -
+                 read -p "Enter Build Number:" Build
 		 cd /home/ec2-user/
 		 rm -rf *.war
-		 wget http://vitrayabucket.s3.amazonaws.com/jobs/DeployS3Pipeline/$Build/target/wwp-1.0.0.war
-		 cd /opt/tomcat/*/bin/ ./catalina.sh stop
+		 wget https://vitrayapipeline.s3.us-west-2.amazonaws.com/jobs/S3BucketTesting/$Build/target/wwp-1.0.0.war
+		 cd /opt/tomcat/*/bin/ ./shutdown.sh
 		 cp -rf /home/ec2-user/*.war /opt/tomcat/*/webapps/
-		 cd /opt/tomcat/*/bin/ ./catalina.sh start
-		 echo "Version" $Build "deployed successfully"
-                 '''
+		 cd /opt/tomcat/*/bin/ ./startup.sh
+		 echo "Version" $Build "deployed successfully"'''
             }
         }
     }
