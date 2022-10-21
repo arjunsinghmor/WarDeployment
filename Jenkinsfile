@@ -17,7 +17,6 @@ pipeline {
 	stage('Deploy') {
             steps {
 		 sh '''sudo su -
-                 read -p "Enter Build Number:" Build
 		 cd /home/ec2-user/
 		 rm -rf *.war
 		 wget https://vitrayapipeline.s3.us-west-2.amazonaws.com/jobs/S3BucketTesting/$Build/target/wwp-1.0.0.war
