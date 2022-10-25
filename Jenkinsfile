@@ -16,7 +16,7 @@ pipeline {
         }
 	stage('Deploy') {
             steps {
-		 sh './deploy.sh'
+		input message: 'Build to be deployed', parameters: [string(description: 'Version to be deployed', name: 'Deployed version')]
             }
         }
     }
