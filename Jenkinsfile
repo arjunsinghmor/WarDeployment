@@ -16,7 +16,8 @@ pipeline {
         }
 	stage('Deploy') {
             steps {
-		 echo 'Deployed'
+		 sh 'cd /opt/scripts/'
+		 sh './deploy.sh'
             }
         }
     }
