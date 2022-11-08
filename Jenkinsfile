@@ -6,7 +6,7 @@ pipeline {
     stages {
 	stage('Checkout to agent') {
             steps {
-               sh '''ssh -i opt/tools/JenkinsServer.pem ec2-user@35.88.237.134
+               sh '''ssh -i /opt/tools/JenkinsServer.pem ec2-user@35.88.237.134
 	       '''
             }
         }
