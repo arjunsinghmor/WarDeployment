@@ -6,7 +6,7 @@ pipeline {
     stages {
 	stage('Checkout to agent') {
             steps {
-               sh '''ssh root@172.31.28.14 
+               sh '''ssh -T root@172.31.28.14 
 	       '''
             }
         }
