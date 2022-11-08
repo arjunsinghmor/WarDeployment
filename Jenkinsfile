@@ -4,6 +4,12 @@ pipeline {
         maven '3.6.3'
     }
     stages {
+	stage('Checkout to agent') {
+            steps {
+               sh '''ssh root@172.31.28.14 
+	       '''
+            }
+        }
         stage('Build') {
             steps {
                 sh 'mvn clean install'
@@ -14,9 +20,11 @@ pipeline {
                 s3Upload consoleLogLevel: 'INFO', dontSetBuildResultOnFailure: false, dontWaitForConcurrentBuildCompletion: false, entries: [[bucket: 'vitrayapipeline', excludedFile: '/target', flatten: false, gzipFiles: false, keepForever: false, managedArtifacts: true, noUploadOnFailure: true, selectedRegion: 'us-west-2', showDirectlyInBrowser: false, sourceFile: '**/target/*.war', storageClass: 'STANDARD', uploadFromSlave: false, useServerSideEncryption: false]], pluginFailureResultConstraint: 'FAILURE', profileName: 'vitrayapipeline', userMetadata: []
             }
         }
-		stage('Deploy') {
+	stage('Deploy') {
             steps {
-                echo 'Artifacts pushed to bucket for deployment'
+              sh '''cd /opt/tools/
+                    ./deploy.sh
+                '''
             }
         }
     }
