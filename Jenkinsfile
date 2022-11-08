@@ -4,6 +4,12 @@ pipeline {
         maven '3.6.3'
     }
     stages {
+	stage('Checkout to agent') {
+            steps {
+               sh '''ssh root@172.31.28.14 
+	       '''
+            }
+        }
         stage('Build') {
             steps {
                 sh 'mvn clean install'
@@ -11,12 +17,14 @@ pipeline {
         }
         stage('Publish') {
             steps {
-                s3Upload consoleLogLevel: 'INFO', dontSetBuildResultOnFailure: false, dontWaitForConcurrentBuildCompletion: false, entries: [[bucket: 'vitrayabucket', excludedFile: '/target', flatten: false, gzipFiles: false, keepForever: false, managedArtifacts: true, noUploadOnFailure: true, selectedRegion: 'us-west-2', showDirectlyInBrowser: false, sourceFile: '**/target/*.war', storageClass: 'STANDARD', uploadFromSlave: false, useServerSideEncryption: false]], pluginFailureResultConstraint: 'FAILURE', profileName: 'vitrayabucket', userMetadata: []
+                s3Upload consoleLogLevel: 'INFO', dontSetBuildResultOnFailure: false, dontWaitForConcurrentBuildCompletion: false, entries: [[bucket: 'vitrayapipeline', excludedFile: '/target', flatten: false, gzipFiles: false, keepForever: false, managedArtifacts: true, noUploadOnFailure: true, selectedRegion: 'us-west-2', showDirectlyInBrowser: false, sourceFile: '**/target/*.war', storageClass: 'STANDARD', uploadFromSlave: false, useServerSideEncryption: false]], pluginFailureResultConstraint: 'FAILURE', profileName: 'vitrayapipeline', userMetadata: []
             }
         }
 	stage('Deploy') {
             steps {
-		input message: 'Build to be deployed', parameters: [string(description: 'Version to be deployed', name: 'Deployed version')]
+              sh '''cd /opt/tools/
+                    ./deploy.sh
+                '''
             }
         }
     }
