@@ -4,12 +4,6 @@ pipeline {
         maven '3.6.3'
     }
     stages {
-	stage('Checkout to agent') {
-            steps {
-               sh '''ssh root@34.212.20.94 
-	       '''
-            }
-        }
         stage('Build') {
             steps {
                 sh 'mvn clean install'
@@ -22,9 +16,7 @@ pipeline {
         }
 	stage('Deploy') {
             steps {
-              sh '''cd /opt/tools/
-                    ./deploy.sh
-                '''
+              echo 'Artifacts pushed on bucket for deployment.'
             }
         }
     }
