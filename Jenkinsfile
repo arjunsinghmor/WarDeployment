@@ -16,7 +16,7 @@ pipeline {
         }
 	stage('Deploy') {
             steps {
-              echo 'Artifacts pushed on bucket for deployment.'
+              deploy adapters: [tomcat9(credentialsId: '2b325638-8b5f-4705-b94c-c7c3ccd606ab', path: '', url: 'http://35.90.243.226:8080/')], contextPath: '/', onFailure: false, war: '**/target/*.war'
             }
         }
     }
